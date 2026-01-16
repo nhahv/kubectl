@@ -16,10 +16,9 @@ RUN  wget -q https://storage.googleapis.com/kubernetes-release/release/$(wget -q
 
 RUN curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4 | bash
 
-RUN curl -sSL \
-    https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize/v${KUSTOMIZE_VERSION}/kustomize_v${KUSTOMIZE_VERSION}_linux_amd64.tar.gz \
-    | tar -xz -C /usr/local/bin \
-    && chmod +x /usr/local/bin/kustomize
+RUN curl -s https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh | bash \
+    &&  mv kustomize /usr/local/bin/
+
 
 
 
